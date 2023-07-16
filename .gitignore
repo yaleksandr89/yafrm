@@ -2,8 +2,9 @@ tmp/*
 
 ### Composer ###
 composer.phar
+
 vendor/*
-!vendor/core/*
+!vendor/yafrm/
 
 ### PhpStorm ###
 .idea/*
