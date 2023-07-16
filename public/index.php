@@ -1,3 +1,13 @@
-<?php 
+<?php
 
-phpinfo(INFO_GENERAL);
+try {
+    require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+    dump(ARRAY_PATH);
+} catch (Exception $exception) {
+    echo "Произошло исключение:";
+    dd($exception);
+} catch (Error $error) {
+    echo "Произошла ошибка:";
+    dd($error);
+}

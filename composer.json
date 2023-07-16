@@ -14,7 +14,10 @@
     "autoload": {
         "psr-4": {
             "YafrmApp\\": "app/",
-            "YafrmCore\\": "core/"
-        }
+            "YafrmCore\\": "vendor/yafrm/"
+        },
+        "files": [
+            "config/env.php"
+        ]
     }
 }
