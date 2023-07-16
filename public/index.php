@@ -1,13 +1,12 @@
 <?php
 
 try {
-    require_once dirname(__DIR__) . '/vendor/autoload.php';
+    require_once dirname(__DIR__) . '/config/init.php';
 
-    dump(ARRAY_PATH);
+    dump(PATH_CONSTANTS);
+    dump(URL_CONSTANTS);
 } catch (Exception $exception) {
-    echo "Произошло исключение:";
-    dd($exception);
+    dd("ПРОИЗОШЛО ИСКЛЮЧЕНИЕ:\r\n\r\n\r\n$exception");
 } catch (Error $error) {
-    echo "Произошла ошибка:";
-    dd($error);
+    dd("ПРОИЗОШЛА ОШИБКА:\r\n\r\n\r\n$error");
 }

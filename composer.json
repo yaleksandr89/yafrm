@@ -9,15 +9,13 @@
         }
     ],
     "require": {
+        "php": "^8.0",
         "symfony/var-dumper": "^6.3"
     },
     "autoload": {
         "psr-4": {
             "YafrmApp\\": "app/",
             "YafrmCore\\": "vendor/yafrm/"
-        },
-        "files": [
-            "config/env.php"
-        ]
+        }
     }
 }
