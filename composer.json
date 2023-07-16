@@ -8,7 +8,9 @@
             "email": "y.aleksandr89@yandex.ru"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/var-dumper": "^6.3"
+    },
     "autoload": {
         "psr-4": {
             "Yafrm\\": "app/"
