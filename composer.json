@@ -1,0 +1,21 @@
+{
+    "name": "yaleksandr89/yafrm",
+    "description": "MVC Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Yurchenko",
+            "email": "y.aleksandr89@yandex.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "symfony/var-dumper": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "YafrmApp\\": "app/",
+            "YafrmCore\\": "vendor/yafrm/"
+        }
+    }
+}
