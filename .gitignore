@@ -1,3 +1,5 @@
+tmp/*
+
 ### Composer ###
 composer.phar
 /vendor/
