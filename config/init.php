@@ -3,24 +3,16 @@
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 const DEBUG = 'dev'; // 'dev', 'prod'
-
 const LAYOUT = 'ishop';
 
 // >>> PATH CONSTANTS
 define('ROOT_PATH', dirname(__DIR__));
-
 const PUBLIC_PATH = ROOT_PATH . '/public';
-
 const APP_PATH = ROOT_PATH . '/app';
-
 const CORE_PATH = ROOT_PATH . '/vendor/core';
-
 const HELPERS_PATH = ROOT_PATH . '/vendor/core/helpers';
-
 const CACHE_PATH = ROOT_PATH . '/tmp/cache';
-
 const LOGS_PATH = ROOT_PATH . '/tmp/logs';
-
 const CONFIG_PATH = ROOT_PATH . '/config';
 
 const PATH_CONSTANTS = [
@@ -46,9 +38,7 @@ function getBaseUrl(): string
 }
 
 define('BASE_URL', getBaseUrl());
-
 const ADMIN_URL = BASE_URL . '/admin';
-
 const NO_IMAGE = BASE_URL . '/upload/no_image.jpg';
 
 const URL_CONSTANTS = [
