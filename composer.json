@@ -1,0 +1,17 @@
+{
+    "name": "yaleksandr89/yafrm",
+    "description": "MVC Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Yurchenko",
+            "email": "y.aleksandr89@yandex.ru"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Yafrm\\": "app/"
+        }
+    }
+}
