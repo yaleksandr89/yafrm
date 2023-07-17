@@ -2,7 +2,7 @@
 
 namespace YafrmCore\Classes;
 
-use RuntimeException;
+use JetBrains\PhpStorm\NoReturn;
 use Throwable;
 use YafrmCore\Helpers\FilesystemWorker;
 
@@ -13,9 +13,7 @@ class ErrorHandler
 {
     public function __construct()
     {
-        if (!defined('DEBUG')) {
-            throw new RuntimeException('Constant: DEBUG is not defined');
-        }
+        $this->checkExistenceOfConstants();
 
         if ('dev' === DEBUG) {
             error_reporting(E_ALL);
@@ -28,6 +26,7 @@ class ErrorHandler
         register_shutdown_function([$this, 'fatalErrorHandler']);
     }
 
+    #[NoReturn]
     public function exceptionHandler(Throwable $throwable): void
     {
         $this->logError(
@@ -45,6 +44,7 @@ class ErrorHandler
         );
     }
 
+    #[NoReturn]
     public function errorHandler(
         int|string $errno,
         string $errstr,
@@ -80,17 +80,13 @@ class ErrorHandler
 
     private function logError(string $message = '', string $file = '', string $line = ''): void
     {
-        if (!defined('LOGS_PATH')) {
-            throw new RuntimeException('Constant: LOGS_PATH is not defined');
-        }
-
         FilesystemWorker::createFolderIfNotExist(LOGS_PATH);
 
         $currentDate = date('d-m-Y H:i:s');
         file_put_contents(
             LOGS_PATH . '/errors.log',
             <<< ERROR_LOG_TEXT
-            [ $currentDate ]
+            [$currentDate]
             Текст ошибки: $message
             Файл: $file
             Строка: $line
@@ -101,6 +97,7 @@ class ErrorHandler
         );
     }
 
+    #[NoReturn]
     private function displayError(
         int|string $errno,
         string $errstr,
@@ -108,10 +105,6 @@ class ErrorHandler
         string $errline,
         int $response = 500
     ): void {
-        if (!defined('VIEW_PATH')) {
-            throw new RuntimeException('Constant: VIEW_PATH is not defined');
-        }
-
         if (0 === $errno) {
             $response = 404;
         }
@@ -130,5 +123,20 @@ class ErrorHandler
         }
 
         die;
+    }
+
+    private function checkExistenceOfConstants(): void
+    {
+        if (!defined('DEBUG')) {
+            define('DEBUG', 'prod');
+        }
+
+        if (!defined('VIEW_PATH')) {
+            define('VIEW_PATH', dirname(__DIR__) . '/Views');
+        }
+
+        if (!defined('LOGS_PATH')) {
+            define('LOGS_PATH', dirname(__DIR__, 3) . '/tmp/logs');
+        }
     }
 }
