@@ -4,6 +4,7 @@ namespace YafrmCore\Classes;
 
 use RuntimeException;
 use Throwable;
+use YafrmCore\Helpers\FilesystemWorker;
 
 /**
  * @see https://habr.com/ru/articles/161483/
@@ -27,7 +28,7 @@ class ErrorHandler
         register_shutdown_function([$this, 'fatalErrorHandler']);
     }
 
-    private function exceptionHandler(Throwable $throwable): void
+    public function exceptionHandler(Throwable $throwable): void
     {
         $this->logError(
             $throwable->getMessage(),
@@ -44,7 +45,7 @@ class ErrorHandler
         );
     }
 
-    private function errorHandler(
+    public function errorHandler(
         int|string $errno,
         string $errstr,
         string $errfile,
@@ -64,7 +65,7 @@ class ErrorHandler
         );
     }
 
-    private function fatalErrorHandler(): void
+    public function fatalErrorHandler(): void
     {
         $error = error_get_last();
 
@@ -82,6 +83,8 @@ class ErrorHandler
         if (!defined('LOGS_PATH')) {
             throw new RuntimeException('Constant: LOGS_PATH is not defined');
         }
+
+        FilesystemWorker::createFolderIfNotExist(LOGS_PATH);
 
         $currentDate = date('d-m-Y H:i:s');
         file_put_contents(
