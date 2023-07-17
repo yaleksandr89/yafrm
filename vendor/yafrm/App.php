@@ -3,6 +3,7 @@
 namespace YafrmCore;
 
 use RuntimeException;
+use YafrmCore\Classes\ErrorHandler;
 use YafrmCore\Classes\Registry;
 
 class App
@@ -11,6 +12,7 @@ class App
 
     public function __construct()
     {
+        new ErrorHandler();
         self::$app = Registry::getInstance();
         self::getParams();
     }

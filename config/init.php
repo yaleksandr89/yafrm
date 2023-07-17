@@ -9,6 +9,7 @@ const LAYOUT = 'ishop';
 define('ROOT_PATH', dirname(__DIR__));
 const PUBLIC_PATH = ROOT_PATH . '/public';
 const APP_PATH = ROOT_PATH . '/app';
+const VIEW_PATH = ROOT_PATH . '/app/Views';
 const CORE_PATH = ROOT_PATH . '/vendor/core';
 const HELPERS_PATH = ROOT_PATH . '/vendor/core/helpers';
 const CACHE_PATH = ROOT_PATH . '/tmp/cache';
@@ -19,6 +20,7 @@ const PATH_CONSTANTS = [
     'ROOT_PATH' => ROOT_PATH,
     'PUBLIC_PATH' => PUBLIC_PATH,
     'APP_PATH' => APP_PATH,
+    'VIEW_PATH' => VIEW_PATH,
     'CORE_PATH' => CORE_PATH,
     'HELPERS_PATH' => HELPERS_PATH,
     'CACHE_PATH' => CACHE_PATH,
