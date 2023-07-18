@@ -17,5 +17,10 @@
             "YafrmApp\\": "app/",
             "YafrmCore\\": "vendor/yafrm/"
         }
+    },
+    "extra": {
+        "app_namespaces": {
+            "YafrmApp\\": "app/"
+        }
     }
 }

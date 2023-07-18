@@ -9,20 +9,32 @@ use  YafrmCore\Classes\Router;
  */
 
 // Админка
-Router::add('^admin/?$', [
-    'controller' => 'Main',
-    'action' => 'index',
-    'prefix' => 'admin',
-]);
+Router::add(
+    '^admin/?$',
+    [
+        'controller' => 'Main',
+        'action' => 'index',
+        'prefix' => 'admin',
+    ]
+);
 
-Router::add('^admin/?(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$', ['prefix' => 'admin']);
+Router::add(
+    '^admin/?(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$',
+    ['prefix' => 'admin']
+);
 
 
 // Фронт
-Router::add('^$', [
-    'controller' => 'Main',
-    'action' => 'index',
-    'prefix' => 'front',
-]);
+Router::add(
+    '^$',
+    [
+        'controller' => 'Main',
+        'action' => 'index',
+        'prefix' => 'front',
+    ]
+);
 
-Router::add('^(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$', ['prefix' => 'front']);
+Router::add(
+    '^(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$',
+    ['prefix' => 'front']
+);
