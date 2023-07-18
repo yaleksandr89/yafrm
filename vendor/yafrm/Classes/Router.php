@@ -2,6 +2,8 @@
 
 namespace YafrmCore\Classes;
 
+use RuntimeException;
+
 class Router
 {
     private static array $routes = [];
@@ -23,14 +25,29 @@ class Router
         return self::$routes;
     }
 
-    public static function dispatch(string $uri)
+    public static function dispatch(string $uri): void
     {
-        if (self::matchRoute($uri)){
-            echo 'OK';
-        } else {
-            echo 'NOT OK';
-        }
+        if (self::matchRoute($uri)) {
+            $controller = 'YafrmApp\Controllers\\'
+                . self::$route['prefix']
+                . self::$route['controller']
+                . 'Controller';
 
+            if (class_exists($controller)) {
+                $objController = new $controller(self::$route);
+                $action = self::toCamelCase(self::$route['action'], false) . 'Action';
+
+                if (method_exists($objController,$action)){
+                    $objController->$action();
+                } else {
+                    throw new RuntimeException("Метод: $controller::$action не найден", 404);
+                }
+            } else {
+                throw new RuntimeException("Контроллер: $controller не найден", 404);
+            }
+        } else {
+            throw new RuntimeException('Страница не найдена', 404);
+        }
     }
 
     public static function matchRoute(string $uri): bool
@@ -38,7 +55,7 @@ class Router
         foreach (self::getRoutes() as $pattern => $route) {
             if (preg_match("#$pattern#", $uri, $matches)) {
                 foreach ($matches as $k => $v) {
-                    if (is_string($k)){
+                    if (is_string($k)) {
                         $route[$k] = $v;
                     }
                 }
@@ -47,13 +64,14 @@ class Router
                     $route['action'] = 'index';
                 }
 
-                if (!array_key_exists('admin_prefix', $route)) {
-                    $route['admin_prefix'] = '';
+                if (!array_key_exists('prefix', $route)) {
+                    $route['prefix'] = '';
                 } else {
-                    $route['admin_prefix'] = '\\';
+                    $route['prefix'] = ucfirst($route['prefix']) . '\\';
                 }
 
                 $route['controller'] = self::toCamelCase($route['controller']);
+                self::$route = $route;
 
                 return true;
             }
