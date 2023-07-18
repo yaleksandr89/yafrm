@@ -1,7 +1,5 @@
 <?php
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-
 const DEBUG = 'dev'; // 'dev', 'prod'
 const LAYOUT = 'ishop';
 
@@ -49,3 +47,6 @@ const URL_CONSTANTS = [
     'NO_IMAGE'=> NO_IMAGE,
 ];
 // URL CONSTANTS <<<
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/config/routes.php';
