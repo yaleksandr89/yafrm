@@ -5,6 +5,7 @@ namespace YafrmCore;
 use RuntimeException;
 use YafrmCore\Classes\ErrorHandler;
 use YafrmCore\Classes\Registry;
+use YafrmCore\Classes\Router;
 
 class App
 {
@@ -12,9 +13,12 @@ class App
 
     public function __construct()
     {
+        $uri = trim($_SERVER['REQUEST_URI'], '/');
+
         new ErrorHandler();
         self::$app = Registry::getInstance();
         self::getParams();
+        Router::dispatch($uri);
     }
 
     private static function getParams(): void
