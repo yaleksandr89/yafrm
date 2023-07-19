@@ -8,6 +8,5 @@ class MainController extends BaseController
 {
     public function indexAction()
     {
-        dump($this);
     }
 }

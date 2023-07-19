@@ -10,7 +10,7 @@ abstract class BaseController
 
     public array $meta = [];
 
-    public string|false $layout = '';
+    public ?string $layout = '';
 
     public string $view = '';
 
@@ -38,6 +38,15 @@ abstract class BaseController
     public function getView(): void
     {
         $this->view = $this->view ?: $this->route['action'];
+
+        $objView = new View(
+            $this->route,
+            $this->layout,
+            $this->view,
+            $this->meta,
+        );
+
+        $objView->render($this->data);
     }
 
     public function set(array $data): void
