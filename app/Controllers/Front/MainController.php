@@ -2,10 +2,12 @@
 
 namespace YafrmApp\Controllers\Front;
 
-class MainController
+use YafrmCore\Classes\BaseController;
+
+class MainController extends BaseController
 {
     public function indexAction()
     {
-        echo  __METHOD__;
+        dump($this);
     }
 }
