@@ -41,7 +41,12 @@ class Router
                 . 'Controller';
 
             if (class_exists($controller)) {
+                self::$route['begin_app_namespace'] = array_key_first($appNamespace);
+
+                /** @var BaseController $objController */
                 $objController = new $controller(self::$route);
+                $objController->getModel();
+
                 $action = self::toCamelCase(self::$route['action'], false) . 'Action';
 
                 if (method_exists($objController, $action)) {
