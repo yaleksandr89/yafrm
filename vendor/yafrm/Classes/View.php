@@ -3,6 +3,7 @@
 namespace YafrmCore\Classes;
 
 use RuntimeException;
+use YafrmCore\Helpers\Str;
 
 class View
 {
@@ -60,5 +61,18 @@ class View
 
             require_once $layoutFile;
         }
+    }
+
+    public function getMeta(): string
+    {
+        $title = Str::h($this->meta['title']);
+        $description = Str::h($this->meta['description']);
+        $keywords = Str::h($this->meta['keywords']);
+
+        return <<<META
+        <title>$title</title>
+        <meta name="description" content="$description">
+        <meta name="keywords" content="$keywords">
+        META;
     }
 }

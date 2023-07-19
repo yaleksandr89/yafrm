@@ -4,7 +4,7 @@ namespace YafrmCore\Classes;
 
 use JetBrains\PhpStorm\NoReturn;
 use Throwable;
-use YafrmCore\Helpers\FilesystemWorker;
+use YafrmCore\Helpers\Filesystem;
 
 /**
  * @see https://habr.com/ru/articles/161483/
@@ -80,7 +80,7 @@ class ErrorHandler
 
     private function logError(string $message = '', string $file = '', string $line = ''): void
     {
-        FilesystemWorker::createFolderIfNotExist(LOGS_PATH);
+        Filesystem::createFolderIfNotExist(LOGS_PATH);
 
         $currentDate = date('d-m-Y H:i:s');
         file_put_contents(

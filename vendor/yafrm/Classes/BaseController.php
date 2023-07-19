@@ -8,7 +8,11 @@ abstract class BaseController
 {
     public array $data = [];
 
-    public array $meta = [];
+    public array $meta = [
+        'title' => '',
+        'description' => '',
+        'keywords' => '',
+    ];
 
     public ?string $layout = '';
 
