@@ -7,7 +7,7 @@ namespace YafrmCore\Helpers;
 use DirectoryIterator;
 use RuntimeException;
 
-final class FilesystemWorker
+final class Filesystem
 {
     public static function deleteFilesThenSelf(string $folder): void
     {
