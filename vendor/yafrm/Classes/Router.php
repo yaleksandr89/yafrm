@@ -35,22 +35,24 @@ class Router
         $uriPath = $parseUrl['path'] ?? '';
 
         if (self::matchRoute($uriPath)) {
-            $controller = array_key_first($appNamespace) . 'Controllers\\'
+            $beginAppNamespace = array_key_first($appNamespace);
+
+            $controller = $beginAppNamespace . 'Controllers\\'
                 . self::$route['prefix']
                 . self::$route['controller']
                 . 'Controller';
 
             if (class_exists($controller)) {
-                self::$route['begin_app_namespace'] = array_key_first($appNamespace);
+                self::$route['begin_app_namespace'] = $beginAppNamespace;
 
                 /** @var BaseController $objController */
                 $objController = new $controller(self::$route);
                 $objController->getModel();
 
                 $action = self::toCamelCase(self::$route['action'], false) . 'Action';
-
                 if (method_exists($objController, $action)) {
                     $objController->$action();
+                    $objController->getView();
                 } else {
                     throw new RuntimeException("Метод: $controller::$action не найден", 404);
                 }

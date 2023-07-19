@@ -2,10 +2,11 @@
 
 namespace YafrmApp\Controllers\Admin;
 
-class MainController
+use YafrmCore\Classes\BaseController;
+
+class MainController extends BaseController
 {
     public function indexAction()
     {
-        echo  __METHOD__;
     }
 }

@@ -2,7 +2,9 @@
 
 namespace YafrmApp\Controllers\Front;
 
-class PageController
+use YafrmCore\Classes\BaseController;
+
+class PageController extends BaseController
 {
     public function viewAction()
     {
