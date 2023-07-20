@@ -11,4 +11,12 @@ class Main extends BaseModel
     {
         return R::findAll($tableName);
     }
+
+    public function findById(string $tableName, int $id): array
+    {
+        return R::getRow(
+            "SELECT * FROM $tableName WHERE id = :id",
+            ['id' => $id]
+        );
+    }
 }
