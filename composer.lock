@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2de8c43ee12ef1365d8a758fbce00a82",
-    "packages": [],
+    "content-hash": "8b16485b59e41ccd3dcf27e3cc4a27d0",
+    "packages": [
+        {
+            "name": "gabordemooij/redbean",
+            "version": "v5.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "274c426583d91b20a1e39968b2e20969ef83cd1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/274c426583d91b20a1e39968b2e20969ef83cd1d",
+                "reference": "274c426583d91b20a1e39968b2e20969ef83cd1d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RedBeanPHP\\": "RedBeanPHP"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabor@redbeanphp.com",
+                    "homepage": "https://redbeanphp.com"
+                }
+            ],
+            "description": "RedBeanPHP ORM",
+            "homepage": "https://redbeanphp.com/",
+            "keywords": [
+                "orm"
+            ],
+            "support": {
+                "issues": "https://github.com/gabordemooij/redbean/issues",
+                "source": "https://github.com/gabordemooij/redbean/tree/v5.7.4"
+            },
+            "time": "2023-03-17T22:39:19+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "symfony/polyfill-mbstring",
