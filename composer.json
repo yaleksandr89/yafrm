@@ -9,7 +9,9 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.0"
+    },
+    "require-dev": {
         "symfony/var-dumper": "^6.3"
     },
     "autoload": {
