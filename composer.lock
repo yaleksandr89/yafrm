@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b16485b59e41ccd3dcf27e3cc4a27d0",
+    "content-hash": "8ff4d50fe9351541122b9daaf06f5bc3",
     "packages": [
         {
             "name": "gabordemooij/redbean",
@@ -50,9 +50,7 @@
                 "source": "https://github.com/gabordemooij/redbean/tree/v5.7.4"
             },
             "time": "2023-03-17T22:39:19+00:00"
-        }
-    ],
-    "packages-dev": [
+        },
         {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.27.0",
@@ -219,6 +217,7 @@
             "time": "2023-06-21T12:08:28+00:00"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],

@@ -16,7 +16,7 @@ class MainController extends BaseController
             'ключ1, ключ2, ключ3, ключ4, ключ5',
         );
         $this->set([
-            'test' => 'test!'
+            'test' => '<h1>test!</h1>'
         ]);
     }
 }

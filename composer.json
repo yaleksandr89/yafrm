@@ -10,9 +10,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "gabordemooij/redbean": "^5"
-    },
-    "require-dev": {
+        "gabordemooij/redbean": "^5",
         "symfony/var-dumper": "^6.3"
     },
     "autoload": {

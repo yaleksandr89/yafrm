@@ -2,6 +2,7 @@
 
 namespace YafrmCore\Classes;
 
+use RedBeanPHP\R;
 use RuntimeException;
 use YafrmCore\Helpers\Str;
 
@@ -74,5 +75,45 @@ class View
         <meta name="description" content="$description">
         <meta name="keywords" content="$keywords">
         META;
+    }
+
+    public function getDbLogs(): void
+    {
+        if ('dev' === DEBUG) {
+            $log = R::getDatabaseAdapter()
+                ->getDatabase()
+                ->getLogger();
+
+            if ($log) {
+                $logs = array_merge(
+                    $log->grep('SELECT'),
+                    $log->grep('select'),
+                    $log->grep('INSERT'),
+                    $log->grep('insert'),
+                    $log->grep('DELETE'),
+                    $log->grep('delete'),
+                    $log->grep('UPDATE'),
+                    $log->grep('update'),
+                    $log->grep('ALTER'),
+                    $log->grep('alter'),
+                );
+                dump($logs);
+            }
+        }
+    }
+
+    public function getPart(string $path, ?array $data = null): void
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+
+        $pathToFile = VIEW_PATH . '/' . $path . '.php';
+
+        if (file_exists($pathToFile)) {
+            require $pathToFile;
+        } else {
+            echo "Шаблон: <strong>$pathToFile<strong> не найден";
+        }
     }
 }
