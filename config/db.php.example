@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @see https://redbeanphp.com/index.php?p=/connection
+ */
+return [
+    'dns' => 'mysql:host=localhost;dbname=mydatabase', // ИЛИ pgsql:host=localhost;dbname=mydatabase
+    'user' => 'USERNAME',
+    'password' => 'PASSWORD',
+];
